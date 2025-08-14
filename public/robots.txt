@@ -3,7 +3,7 @@ Allow: /
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://junglia-guide.vercel.app/sitemap.xml
+Sitemap: https://junglia-guide.pokke4.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
