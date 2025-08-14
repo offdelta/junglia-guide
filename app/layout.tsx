@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     apple: '/img/favicon-junglia-guide.png',
   },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    google: 'e28d2e3338f6f53a',
   },
 };
 
@@ -63,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-6460633296475804" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-THJ2ZET1EG"
           strategy="afterInteractive"
