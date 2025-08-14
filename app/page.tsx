@@ -43,7 +43,8 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            ジャングリア沖縄　整理券配布場所
+            ジャングリア沖縄<br />
+            整理券配布場所
             <br />
             <span className="text-2xl sm:text-3xl text-green-700">
               ジャングル エクストリームズ レセプションはどこ？
