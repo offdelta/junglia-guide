@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.png',
     apple: '/img/favicon-junglia-guide.png',
   },
+  verification: {
+    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+  },
 };
 
 export default function RootLayout({
