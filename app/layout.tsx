@@ -41,6 +41,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/img/favicon-junglia-guide.png', type: 'image/png' }
+    ],
+    shortcut: '/favicon.png',
+    apple: '/img/favicon-junglia-guide.png',
+  },
 };
 
 export default function RootLayout({
