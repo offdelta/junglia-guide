@@ -1,103 +1,153 @@
 import Image from "next/image";
+import Script from "next/script";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const images = [
+    { src: "/img/junglia-whole.jpg", alt: "ジャングリア沖縄 全体図" },
+    { src: "/img/junglia-ticketarea.jpg", alt: "エリア拡大図【①は開園までの待機場所】" },
+    { src: "/img/path1-2.jpg", alt: "経路1-2" },
+    { src: "/img/path2.jpg", alt: "経路2" },
+    { src: "/img/path3.jpg", alt: "経路3" },
+    { src: "/img/path4.jpg", alt: "経路4" },
+    { src: "/img/path5.jpg", alt: "経路5" },
+    { src: "/img/path567.jpg", alt: "経路5-6-7" },
+    { src: "/img/reception.jpg", alt: "レセプション" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "ジャングリア沖縄 整理券配布場所への行き方",
+    "description": "ジャングリア沖縄の整理券配布場所「ジャングル エクストリームズ レセプション」への詳しい行き方ガイド",
+    "image": images.map(img => `https://junglia-guide.vercel.app${img.src}`),
+    "supply": {
+      "@type": "HowToSupply",
+      "name": "ジャングリア沖縄入園チケット"
+    },
+    "step": images.map((img, index) => ({
+      "@type": "HowToStep",
+      "name": `ステップ${index + 1}`,
+      "text": img.alt,
+      "image": `https://junglia-guide.vercel.app${img.src}`
+    }))
+  };
+
+  return (
+    <>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+      <main className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            ジャングリア沖縄　整理券配布場所
+            <br />
+            <span className="text-2xl sm:text-3xl text-green-700">
+              ジャングル エクストリームズ レセプションはどこ？
+            </span>
+          </h1>
+          
+          <div className="bg-white rounded-lg shadow-md p-6 text-left max-w-2xl mx-auto">
+            <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
+              ジャングリア沖縄の公式HPでは、ジャングル エクストリームズ レセプションの名称のみが記載されており、
+              具体的な場所についての詳細情報がありません。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              このページでは、レセプションまでの道のりを画像付きで順番にご案内します。
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a
+                href="https://support.junglia.jp/hc/ja/articles/46087536626201-%E6%95%B4%E7%90%86%E5%88%B8%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-200"
+              >
+                公式サイト Q&A - 整理券について
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+            <p className="text-sm text-gray-600 mt-3 text-center">
+              ※ アトラクションの運営状況や整理券配布の有無は変更される可能性があります。<br />
+              最新情報は公式サイトにて事前にご確認ください。
+            </p>
+          </div>
+        </header>
+
+        <section className="space-y-8" aria-label="整理券配布場所への道順">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl"
+            >
+              <div className="relative aspect-video">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-contain"
+                  priority={index === 0}
+                />
+              </div>
+              <div className="p-4 bg-gray-50">
+                <p className="text-sm font-medium text-gray-600">
+                  ステップ {index + 1} / {images.length}
+                </p>
+                <p className="text-lg font-semibold text-gray-900 mt-1">
+                  {image.alt}
+                </p>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="mt-12 bg-yellow-50 border-2 border-yellow-300 rounded-lg shadow-md p-6 max-w-3xl mx-auto" aria-label="整理券取得に関する重要情報">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <svg className="w-6 h-6 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            重要：整理券取得について
+          </h2>
+          
+          <div className="space-y-4 text-gray-700">
+            <div className="bg-white rounded-lg p-4">
+              <h3 className="font-semibold text-red-600 mb-2">アプリでの取得は困難</h3>
+              <p>公式アプリでの整理券取得は、アクセス過多により配布開始と同時に終了することがほとんどです。</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4">
+              <h3 className="font-semibold text-blue-600 mb-2">確実に乗りたい場合の戦略</h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>開園と同時にレセプションへダッシュして整理券を取得</li>
+                <li>開園直後の空いている時間帯に直接並ぶ</li>
+              </ul>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4">
+              <h3 className="font-semibold text-orange-600 mb-2">整理券の注意点</h3>
+              <p>整理券を持っていても最大90分程度の待ち時間が発生する場合があります。</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 border-2 border-red-300">
+              <h3 className="font-semibold text-red-700 mb-2">ハーネス系アトラクション（上級者向け）</h3>
+              <ul className="list-disc list-inside space-y-1 text-red-700">
+                <li className="font-bold">整理券が必須（並ぶことは不可）</li>
+                <li>ジャングル エクストリームズ レセプションで受付</li>
+                <li>体験希望の場合は開園2時間前から並ぶ必要あり</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <footer className="mt-16 text-center text-gray-600 text-sm">
+          <p>整理券配布場所への道案内</p>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
+    </>
   );
 }
