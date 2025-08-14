@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Script from "next/script";
+import GoogleAdsense from "./components/GoogleAdsense";
 
 export default function Home() {
   const images = [
@@ -79,32 +80,64 @@ export default function Home() {
           </div>
         </header>
 
+        {/* 広告ユニット - ヘッダー下 */}
+        <div className="mb-8">
+          <GoogleAdsense 
+            slot="1234567890"
+            format="auto"
+            responsive={true}
+            className="mx-auto"
+          />
+        </div>
+
         <section className="space-y-8" aria-label="整理券配布場所への道順">
           {images.map((image, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl"
-            >
-              <div className="relative aspect-video">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-contain"
-                  priority={index === 0}
-                />
+            <div key={index}>
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl"
+              >
+                <div className="relative aspect-video">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-contain"
+                    priority={index === 0}
+                  />
+                </div>
+                <div className="p-4 bg-gray-50">
+                  <p className="text-sm font-medium text-gray-600">
+                    ステップ {index + 1} / {images.length}
+                  </p>
+                  <p className="text-lg font-semibold text-gray-900 mt-1">
+                    {image.alt}
+                  </p>
+                </div>
               </div>
-              <div className="p-4 bg-gray-50">
-                <p className="text-sm font-medium text-gray-600">
-                  ステップ {index + 1} / {images.length}
-                </p>
-                <p className="text-lg font-semibold text-gray-900 mt-1">
-                  {image.alt}
-                </p>
-              </div>
+              {/* 3つ目の画像の後に広告を配置 */}
+              {index === 2 && (
+                <div className="my-8">
+                  <GoogleAdsense 
+                    slot="1546575791"
+                    format="auto"
+                    responsive={true}
+                    className="mx-auto"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </section>
+
+        {/* 広告ユニット - 画像セクション後 */}
+        <div className="my-8">
+          <GoogleAdsense 
+            slot="0987654321"
+            format="auto"
+            responsive={true}
+            className="mx-auto"
+          />
+        </div>
 
         <section className="mt-12 bg-yellow-50 border-2 border-yellow-300 rounded-lg shadow-md p-6 max-w-3xl mx-auto" aria-label="整理券取得に関する重要情報">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
