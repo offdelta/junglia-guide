@@ -130,7 +130,13 @@ export default function Home() {
             <p className="text-gray-700 leading-relaxed mb-4">
               このページでは、<strong>入園ゲートからジャングル エクストリームズ レセプションまでの最短ルート</strong>を、
               実際の写真を使って詳しくご案内します。開園前の待機場所から整理券配布場所まで、迷うことなく確実にたどり着けるよう、
-              9枚の写真で順を追って説明しています。
+              <a href="#photo-guide" className="text-red-600 font-bold underline hover:text-red-700 inline-flex items-center">
+                以下に9枚の写真
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+              で順を追って説明しています。
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               ジャングリア沖縄のハーネス系アトラクション（上級者向けアトラクション）を体験するには、
@@ -180,7 +186,6 @@ export default function Home() {
                 <li>開園の<strong>2時間前</strong>には到着し、入園ゲート前で待機</li>
                 <li>公式アプリを事前にダウンロードし、ログイン済みの状態にしておく</li>
                 <li>レセプションまでのルートを本ページで事前に確認</li>
-                <li>グループで訪問の場合は、整理券取得係を決めておく</li>
               </ul>
             </div>
             <div>
@@ -188,14 +193,13 @@ export default function Home() {
               <ul className="list-disc list-inside space-y-2 text-gray-700">
                 <li>入園ゲートを通過したら、<strong>迷わずレセプションへ直行</strong></li>
                 <li>他のアトラクションには寄らず、整理券確保を最優先</li>
-                <li>走ることは禁止されているため、早歩きで移動</li>
                 <li>レセプション到着後、希望のアトラクションの整理券を即座に取得</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <section className="space-y-8" aria-label="整理券配布場所への道順">
+        <section id="photo-guide" className="space-y-8" aria-label="整理券配布場所への道順">
           <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">
             画像で見る レセプションまでの道順
           </h2>
@@ -350,6 +354,7 @@ export default function Home() {
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-red-600 mb-2">アプリでの取得は困難</h3>
               <p>公式アプリでの整理券取得は、アクセス過多により配布開始と同時に終了することがほとんどです。
+              また、アーリーパークイン（早期入園）の利用者が先に整理券を取得してしまうため、一般入園者がアプリで取得できる枚数は非常に限られています。
               サーバーへの接続エラーが発生することも多く、確実性に欠けます。</p>
             </div>
             
