@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface GoogleAdsenseProps {
   slot: string;
@@ -15,17 +15,23 @@ export default function GoogleAdsense({
   responsive = true,
   className = ''
 }: GoogleAdsenseProps) {
+  const adRef = useRef<HTMLDivElement>(null);
+  const isLoaded = useRef(false);
+
   useEffect(() => {
-    try {
-      // @ts-expect-error - adsbygoogle is added by Google AdSense script
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('AdSense error:', err);
+    if (!isLoaded.current && adRef.current) {
+      try {
+        // @ts-expect-error - adsbygoogle is added by Google AdSense script
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        isLoaded.current = true;
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
     }
   }, []);
 
   return (
-    <div className={`adsense-container ${className}`}>
+    <div ref={adRef} className={`adsense-container ${className}`}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

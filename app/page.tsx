@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import GoogleAdsense from "./components/GoogleAdsense";
+import FloatingShareButton from "./components/FloatingShareButton";
 
 export default function Home() {
   const images = [
@@ -419,6 +420,9 @@ export default function Home() {
           </p>
         </footer>
       </main>
+      
+      {/* フローティングシェアボタン */}
+      <FloatingShareButton />
     </div>
     </>
   );
