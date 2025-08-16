@@ -166,14 +166,14 @@ export default function Home() {
         </header>
 
         {/* 広告ユニット - ヘッダー下 */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <GoogleAdsense 
             slot="1234567890"
             format="auto"
             responsive={true}
             className="mx-auto"
           />
-        </div>
+        </div> */}
 
         {/* 整理券取得のコツセクション */}
         <section className="mb-12 bg-blue-50 rounded-lg shadow-md p-6 max-w-3xl mx-auto">
@@ -228,7 +228,7 @@ export default function Home() {
                 </div>
               </div>
               {/* 3つ目の画像の後に広告を配置 */}
-              {index === 2 && (
+              {/* {index === 2 && (
                 <div className="my-8">
                   <GoogleAdsense 
                     slot="1546575791"
@@ -237,20 +237,20 @@ export default function Home() {
                     className="mx-auto"
                   />
                 </div>
-              )}
+              )} */}
             </div>
           ))}
         </section>
 
         {/* 広告ユニット - 画像セクション後 */}
-        <div className="my-8">
+        {/* <div className="my-8">
           <GoogleAdsense 
             slot="0987654321"
             format="auto"
             responsive={true}
             className="mx-auto"
           />
-        </div>
+        </div> */}
 
         {/* FAQセクション */}
         <section className="mt-12 bg-gray-50 rounded-lg shadow-md p-6 max-w-3xl mx-auto">
