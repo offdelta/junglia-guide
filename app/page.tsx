@@ -362,8 +362,7 @@ export default function Home() {
               <h3 className="font-semibold text-blue-600 mb-2">確実に乗りたい場合の戦略</h3>
               <ul className="list-disc list-inside space-y-1">
                 <li>開園と同時にレセプションへダッシュして整理券を取得</li>
-                <li>開園直後の空いている時間帯に直接並ぶ</li>
-                <li>グループで手分けして複数の整理券を確保</li>
+                <li>開園直後の空いている時間帯に整理券には走らず、直接アトラクションに並ぶ</li>
               </ul>
             </div>
             
